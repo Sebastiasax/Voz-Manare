@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias - Radio Manare</title>
+    <!-- Incluye Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configura la fuente Inter -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+    </style>
+    <!-- Incluye el archivo de estilos personalizado -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen flex flex-col items-center p-4 sm:p-6 md:p-8">
+
+    <!-- Contenedor principal de la sección de noticias / contenido dinámico -->
+    <div class="news-container w-full max-w-7xl bg-white p-6 sm:p-8 md:p-10 rounded-lg shadow-xl mt-8">
+
+        <!-- Barra superior con "VOCES MANARENSES", navegación y "EN VIVO" -->
+        <div class="top-bar bg-yellow-300 rounded-lg p-4 flex flex-col md:flex-row justify-between items-center mb-8 shadow-md">
+            <div class="flex items-center mb-4 md:mb-0">
+                <span class="font-bold text-gray-800 text-xl md:text-2xl">VOCES MANARENSES</span>
+            </div>
+            <nav id="mainNav" class="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 text-gray-700 font-medium text-sm md:text-base">
+                <a href="#" data-module="noticias" class="nav-link active hover:text-blue-700 transition-colors duration-200">Noticias</a>
+                <a href="#" data-module="programas" class="nav-link hover:text-blue-700 transition-colors duration-200">Programas</a>
+                <a href="#" data-module="podcast" class="nav-link hover:text-blue-700 transition-colors duration-200">Podcast</a>
+                <a href="#" data-module="cultura" class="nav-link hover:text-blue-700 transition-colors duration-200">Cultura</a>
+                <a href="#" data-module="musica" class="nav-link hover:text-blue-700 transition-colors duration-200">Música</a>
+                <a href="#" data-module="deporte" class="nav-link hover:text-blue-700 transition-colors duration-200">Deporte</a>
+                <a href="#" data-module="radio" class="nav-link hover:text-blue-700 transition-colors duration-200">Radio</a>
+            </nav>
+            <div class="flex items-center mt-4 md:mt-0">
+                <div class="w-2.5 h-2.5 bg-red-500 rounded-full mr-1.5 animate-pulse"></div>
+                <span class="text-red-600 font-semibold text-sm md:text-base">EN VIVO</span>
+            </div>
+        </div>
+
+        <!-- Área donde el contenido de los módulos se cargará dinámicamente -->
+        <div id="dynamicContentArea">
+            <!-- El contenido se cargará aquí con JavaScript -->
+        </div>
+
+    </div>
+
+    <!-- Footer con MANARE.COM e iconos de contacto -->
+    <footer class="w-full max-w-7xl text-center py-4 mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
+        <span class="text-gray-600 font-medium">MANARE.COM</span>
+        <div class="flex items-center space-x-4">
+            <!-- Icono de Facebook -->
+            <a href="https://www.facebook.com/ManarePzaOficial" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors duration-200" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path d="M16.333 3.007h3.355v-.009a2.366 2.366 0 0 0-2.366-2.366h-3.355a6.002 6.002 0 0 0-6 6v3.355H6.002v3.355h2.331V24h3.355V14.002h3.355l.671-3.355h-4.026v-2.002a.671.671 0 0 1 .671-.671h3.355V3.007Z" />
+                </svg>
+            </a>
+            <!-- Icono de Gmail (Email) -->
+            <a href="mailto:s34855819@gmail.com" class="text-red-500 hover:text-red-700 transition-colors duration-200" aria-label="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path d="M1.5 8.67V19.5a2.25 2.25 0 0 0 2.25 2.25h16.5A2.25 2.25 0 0 0 22.5 19.5V8.67l-7.234 4.521a2.25 2.25 0 0 1-2.393 0L1.5 8.67Z" />
+                    <path d="M22.5 6.908V6.75a2.25 2.25 0 0 0-2.25-2.25H3.75A2.25 2.25 0 0 0 1.5 6.75v.158l9.714 6.071a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
+                </svg>
+            </a>
+            <!-- Icono de Teléfono -->
+            <a href="tel:+573212692824" class="text-green-500 hover:text-green-700 transition-colors duration-200" aria-label="Teléfono">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.286 5.387a1.8 1.8 0 0 1-.38 1.802l-1.636 1.636a1.2 1.2 0 0 0 0 1.7L8.937 20.354a1.8 1.8 0 0 0 1.705.539l2.793-.559a1.5 1.5 0 0 1 1.7 1.09L15.93 23.59a1.5 1.5 0 0 1-.39 1.536l-1.077 1.077a7.5 7.5 0 0 1-5.303 2.197H4.5a3 3 0 0 1-3-3V4.5Z" clip-rule="evenodd" />
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Modal para "Seguir leyendo" -->
+    <div id="newsModal" class="modal-overlay hidden">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="relative">
+                <button id="closeModal" class="absolute top-4 right-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                        <path d="m18 6-12 12"></path>
+                        <path d="m6 6 12 12"></path>
+                    </svg>
+                </button>
+
+                <img id="modalImage" src="/placeholder.svg" alt="" class="w-full h-64 object-cover rounded-t-lg">
+
+                <div class="p-6">
+                    <h1 id="modalTitle" class="text-3xl font-bold text-gray-900 mb-4"></h1>
+                    <p id="modalDate" class="text-gray-500 text-sm mb-6"></p>
+                    <div class="prose prose-lg max-w-none">
+                        <p id="modalContent" class="text-gray-700 leading-relaxed"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio player oculto para la radio -->
+    <audio id="audioPlayer" controls class="audio-player hidden-audio-player">
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+/* Estilos personalizados para el diseño de noticias y módulos */
+
+/* Contenedor principal de la página (fondo azul) */
+.news-container {
+  background-color: #f15b5b;
+  border-radius: 1rem; /* Esquinas más redondeadas */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Sombra suave */
+}
+
+/* Barra superior con el fondo amarillo */
+.top-bar {
+  background-color: #00b7ff; /* El color amarillo/crema de la imagen */
+  border-radius: 0.75rem; /* Bordes redondeados */
+  padding: 1.5rem 2rem; /* Espaciado interno */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06); /* Sombra ligera */
+}
+
+/* Estilo para los enlaces de navegación */
+.top-bar nav .nav-link {
+  position: relative;
+  padding-bottom: 5px; /* Espacio para el subrayado */
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Subrayado animado para los enlaces de navegación */
+.top-bar nav .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #1a202c; /* Color del subrayado */
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+/* Estado activo y hover para los enlaces de navegación */
+.top-bar nav .nav-link:hover::after,
+.top-bar nav .nav-link.active::after {
+  width: 100%;
+  left: 0;
+}
+
+.top-bar nav .nav-link.active {
+  font-weight: bold; /* Texto en negrita para el activo */
+  color: #1a202c; /* Color más oscuro para el activo */
+}
+
+/* Estilos para las tarjetas de noticias y módulos */
+.news-card,
+.module-section > div > div {
+  /* Aplica a news-card y las cards dentro de los módulos */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  overflow: hidden; /* Asegura que las esquinas de la imagen estén redondeadas */
+}
+
+.news-card:hover,
+.module-section > div > div:hover {
+  transform: translateY(-5px); /* Pequeño efecto de elevación al pasar el ratón */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.08); /* Sombra más pronunciada */
+}
+
+/* Estilos para el modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 1rem;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  margin: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.show .modal-content {
+  transform: scale(1);
+}
+
+/* Estilos para el reproductor de audio */
+.audio-player {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  color: white;
+  text-align: center;
+}
+
+.control-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.control-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.volume-control {
+  appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+
+.volume-control::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.volume-control::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column; /* Apila elementos en pantallas pequeñas */
+    text-align: center;
+  }
+  .top-bar nav {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    justify-content: center; /* Centra los enlaces de navegación */
+  }
+  .main-news-section h1,
+  .module-section h2 {
+    font-size: 3rem; /* Ajusta el tamaño del título de noticias */
+    text-align: center;
+  }
+  .main-news-section p,
+  .module-section p {
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .news-container {
+    padding: 1.5rem; /* Reduce el padding en pantallas muy pequeñas */
+  }
+  .top-bar {
+    padding: 1rem;
+  }
+  .top-bar nav {
+    gap: 1.5rem;
+  }
+  .main-news-section h1,
+  .module-section h2 {
+    font-size: 2.5rem; /* Ajusta el tamaño del título de noticias */
+  }
+  .main-news-section p,
+  .module-section p {
+    font-size: 0.9rem;
+  }
+}
